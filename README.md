@@ -66,20 +66,70 @@ medication-assistant/
 │   │   │       ├── HealthMetrics/
 │   │   │       ├── MedicationInfo/
 │   │   │       └── Telemedicine/
-│   ├── pages/
-│   ├── services/
-│   ├── hooks/
-│   ├── utils/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   │   ├── api/
+│   │   │   ├── googleCalendar/
+│   │   │   ├── notifications/
+│   │   │   └── voiceAssistant/
+│   │   ├── hooks/
+│   │   ├── utils/
+│   │   ├── assets/
+│   │   ├── context/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── public/
+│   ├── index.html
+│   ├── vite.config.js
+│   ├── tailwind.config.js
+│   └── package.json
 ├── backend/
 │   ├── src/
 │   │   ├── routes/
 │   │   ├── controllers/
 │   │   ├── models/
 │   │   ├── middlewares/
-│   │   ├── services/ (OCR, ChatGPT, notifications)
-├── ml/ (AI/ML models for OCR, drug interactions)
-├── docs/ (Documentation)
-├── tests/ (Testing files)
+│   │   ├── services/
+│   │   │   ├── ocr/
+│   │   │   ├── chatgpt/
+│   │   │   ├── googleCalendar/
+│   │   │   ├── sms/
+│   │   │   ├── voiceCall/
+│   │   │   ├── pharmacyIntegration/
+│   │   │   └── telemedicine/
+│   │   ├── utils/
+│   │   ├── config/
+│   │   └── app.js
+│   ├── .env
+│   └── package.json
+├── ml/
+│   ├── models/
+│   │   ├── medicineRecognition/
+│   │   ├── drugInteraction/
+│   │   └── healthInsights/
+│   ├── data/
+│   ├── scripts/
+│   │   ├── train.py
+│   │   ├── predict.py
+│   │   └── preprocess.py
+│   └── requirements.txt
+├── shared/
+│   └── types/
+├── scripts/
+├── docs/
+│   ├── api/
+│   ├── setup/
+│   └── features/
+├── tests/
+│   ├── frontend/
+│   ├── backend/
+│   └── ml/
+├── .gitignore
+├── docker-compose.yml
+├── README.md
+└── package.json
+
+
 ```
 
 ---
