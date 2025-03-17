@@ -2,10 +2,7 @@ import easyocr
 import cv2
 import numpy as np
 
-# ocr_script.py
 def get_ocr_text(image_path):
-    # Your existing OCR processing code
-    # ...
 
     # Load Image
     image = cv2.imread(image_path)
