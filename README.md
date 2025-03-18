@@ -84,90 +84,43 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ---
 
-## **Folder Structure**
-```
-medication-assistant/
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── common/
-│   │   │   ├── layout/
-│   │   │   └── features/
-│   │   │       ├── MedicineRecognition/
-│   │   │       ├── Scheduling/
-│   │   │       ├── Reminders/
-│   │   │       ├── MedicationTracking/
-│   │   │       ├── DrugInteractions/
-│   │   │       ├── RefillManagement/
-│   │   │       ├── VoiceAssistant/
-│   │   │       ├── CaregiverAccess/
-│   │   │       ├── HealthMetrics/
-│   │   │       ├── MedicationInfo/
-│   │   │       └── Telemedicine/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   │   ├── api/
-│   │   │   ├── googleCalendar/
-│   │   │   ├── notifications/
-│   │   │   └── voiceAssistant/
-│   │   ├── hooks/
-│   │   ├── utils/
-│   │   ├── assets/
-│   │   ├── context/
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   ├── public/
-│   ├── index.html
-│   ├── vite.config.js
-│   ├── tailwind.config.js
-│   └── package.json
-├── backend/
-│   ├── src/
-│   │   ├── routes/
-│   │   ├── controllers/
-│   │   ├── models/
-│   │   ├── middlewares/
-│   │   ├── services/
-│   │   │   ├── ocr/
-│   │   │   ├── chatgpt/
-│   │   │   ├── googleCalendar/
-│   │   │   ├── sms/
-│   │   │   ├── voiceCall/
-│   │   │   ├── pharmacyIntegration/
-│   │   │   └── telemedicine/
-│   │   ├── utils/
-│   │   ├── config/
-│   │   └── app.js
-│   ├── .env
-│   └── package.json
-├── ml/
-│   ├── models/
-│   │   ├── medicineRecognition/
-│   │   ├── drugInteraction/
-│   │   └── healthInsights/
-│   ├── data/
-│   ├── scripts/
-│   │   ├── train.py
-│   │   ├── predict.py
-│   │   └── preprocess.py
-│   └── requirements.txt
-├── shared/
-│   └── types/
-├── scripts/
-├── docs/
-│   ├── api/
-│   ├── setup/
-│   └── features/
-├── tests/
-│   ├── frontend/
-│   ├── backend/
-│   └── ml/
-├── .gitignore
-├── docker-compose.yml
-├── README.md
-└── package.json
-
-
+flowchart TD
+    subgraph Frontend
+        UI[User Interface] --> PresUpload[Prescription Upload]
+        UI --> Dashboard[User Dashboard]
+        UI --> Settings[User Settings]
+        Dashboard --> MedTracker[Medication Tracker]
+        Dashboard --> Analytics[Adherence Analytics]
+    end
+    
+    subgraph Backend
+        API[API Layer] --> Auth[Authentication]
+        API --> OCR[OCR Processing]
+        API --> Scheduler[Medication Scheduler]
+        API --> Notifier[Notification Service]
+        API --> DB[Database]
+    end
+    
+    subgraph Services
+        OCR --> CV[OpenCV]
+        OCR --> OCRAI[OCR Model]
+        OCR --> TextProc[Text Processing]
+        
+        Notifier --> GCal[Google Calendar]
+        Notifier --> Twilio[Twilio Service]
+        
+        TextProc --> LLM[Large Language Model]
+    end
+    
+    subgraph Database
+        DB --> Users[Users]
+        DB --> Medications[Medications]
+        DB --> Schedules[Schedules]
+        DB --> Adherence[Adherence Logs]
+        DB --> Guardians[Guardian Info]
+    end
+    
+    UI <--> API
 ```
 
 ---
